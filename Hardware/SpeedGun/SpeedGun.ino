@@ -42,8 +42,8 @@ void loop()
   FFT.Compute(FFT_FORWARD);
   FFT.ComplexToMagnitude();
 
-  binMax=1;
-  for (register uint16_t i=2; i<SAMPLE_NUMBER/2/*TODO*/; i++)
+  binMax=0;
+  for (register uint16_t i=1; i<SAMPLE_NUMBER/2; i++)
   {
     if (vReal[i]>vReal[binMax])
     {
@@ -56,7 +56,6 @@ void loop()
   Serial.print(dominantFrequency);
   Serial.println(" Hz");
 
-  
   Serial.print("Detected speed: ");
   Serial.print(dominantFrequency/DOPPLER_TO_VELOCITY);
   Serial.println(" km/h");
